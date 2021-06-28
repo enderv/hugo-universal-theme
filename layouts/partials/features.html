@@ -2,28 +2,42 @@
 {{ if .Site.Params.features.enable }}
 {{ if gt (len .Site.Data.features) 0 }}
 <section class="bar background-white">
+    <div class="text-center border border-light">
+        <h2 class="text-center"><a
+                href="https://ca.org/content/uploads/2020/06/WSBT-COVID-19-Fellowship-Letter-2020-05-30.pdf">Please
+                view
+                the latest COVID-19 advisory from CAWSO</a></h2>
+    </div>
+    <br>
+    <div class="text-center announce-box">
+        <h2 class="text-center">Next Area Meeting July 17th at Noon is Virtual
+            Only <br><a href="https://global.gotomeeting.com/join/839079165">Click Here for Link</a>
+        </h2>
+        <h4 class="text-center">To Dial In United States: 1 (669) 224-3412<br>
+            Access Code: 839-079-165</h4>
+    </div><br><br>
     <div class="container">
         {{ range $index, $element := sort .Site.Data.features "weight" }}
         {{ if eq (mod $index 3) 0 }}
         <div class="col-md-12">
             <div class="row">
-        {{ end }}
+                {{ end }}
                 <div class="col-md-4">
                     <div class="box-simple">
                         {{ with $element.url }}
                         <a href="{{ $element.url }}">
-                        {{ end }}
+                            {{ end }}
                             <div class="icon">
                                 <i class="{{ .icon }}"></i>
                             </div>
-                        {{ with $element.url }}
+                            {{ with $element.url }}
                         </a>
                         {{ end }}
                         <h3>{{ $element.name | markdownify }}</h3>
                         <p>{{ $element.description | markdownify }}</p>
                     </div>
                 </div>
-        {{ if or (eq (mod $index 3) 2) (eq $index (sub (len $.Site.Data.features) 1 )) }}
+                {{ if or (eq (mod $index 3) 2) (eq $index (sub (len $.Site.Data.features) 1 )) }}
             </div>
         </div>
         {{ end }}
